@@ -3,6 +3,7 @@
 var uno = document.getElementsByTagName('li');
 var cnt = document.getElementById('countt');
 var len = uno.length;
+var cek = false;
 cnt.textContent = len.toString();
 console.log(uno.length);
 
@@ -21,9 +22,14 @@ for (i = 0; i < nodelist.length; i++) {
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
+  close[i].onclick = function(e) {
+    e.stopPropagation();
     var div = this.parentElement;
+    if(!div.classList.contains('checked')){
+      len = len - 1;
+    }
     div.style.display = "none";
+    cnt.textContent = len.toString();
   }
 }
 
@@ -33,12 +39,18 @@ list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
   }
-  if(len>0)
+  if(len>0 && ev.target.classList.contains('checked'))
   {
     len = len-1;
     cnt.textContent = len.toString();
   }
+  else if(!ev.target.classList.contains('checked'))
+  {
+    len = len+1;
+    cnt.textContent = len.toString();
+  }
 }, false);
+
 
 /*to add new list*/
 function newElement() {
@@ -60,11 +72,18 @@ function newElement() {
   len=len+1;
   li.appendChild(span);
   for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+    close[i].onclick = function(e) {
+      e.stopPropagation();
       var div = this.parentElement;
+      if(!div.classList.contains('checked')){
+        len = len - 1;
+      }
       div.style.display = "none";
+      cnt.textContent = len.toString();
     }
   }
   cnt.textContent = (len).toString();
 }
+
+
 

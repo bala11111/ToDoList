@@ -1,7 +1,7 @@
 
 /*The body*/
 body{
-    background-color: white;
+    background-color: rgb(192, 148, 82);
 }
 
 /*The container which contains the input*/
@@ -10,9 +10,11 @@ body{
     min-height: 100px;
     width: 36.3%;
     background-color: cadetblue;
-    margin-left: 200px;
+    margin-left: 400px;
     margin-top:100px;
     border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+    border:3px solid black;
 }
 
 /*the input text*/
@@ -59,9 +61,11 @@ input {
     min-height: 40px;
     width: 35%;
     background-color: slateblue;
-    margin-left: 200px;
+    margin-left: 400px;
     border-radius: 0px 0px 10px 10px;
-    padding: 10px;
+    padding: 20px;
+    border:3px solid black;
+    border-top: none;
   }
 
   /*the todo list*/
@@ -107,7 +111,7 @@ input {
   }
  /*the task message*/
   #task{
-      margin-top: 10px;
+      margin-top: 20px;
       height: 25px;
       width: 80%;
       margin-left: 40px;
@@ -115,9 +119,9 @@ input {
       font-weight: 700;
       color: white;
       background-color: black;
+      padding: 2px;
   }
 
   #task p{
-      margin-top: 10px;
-      margin-bottom: -5px;
+      margin-top: 3px;
   }
